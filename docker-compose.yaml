@@ -1,0 +1,17 @@
+version: '3'
+services:
+  vote-back:
+    image: bitnami/redis:6.0.8
+    container_name: vote-back
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+        - '6379:6379'
+
+  vote-front:
+    image: sample-voting-app:1.0
+    container_name: vote-front
+    environment:
+      REDIS: vote-back
+    ports:
+        - '8080:80'
