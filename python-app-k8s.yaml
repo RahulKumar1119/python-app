@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vote-back
+  namespace: python-app
 spec:
   replicas: 1
   selector:
@@ -26,6 +27,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: vote-back
+  namespace: python-app
 spec:
   ports:
   - port: 6379
@@ -36,6 +38,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vote-front
+  namespace: python-app
 spec:
   replicas: 1
   selector:
@@ -60,6 +63,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: vote-front
+  namespace: python-app
 spec:
   type: LoadBalancer
   ports:
