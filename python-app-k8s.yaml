@@ -51,7 +51,7 @@ spec:
     spec:
       containers:
       - name: vote-front
-        image: "sampleregistry77.azurecr.io/myakscluster"
+        image: sampleregistry77.azurecr.io/myakscluster:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
