@@ -45,9 +45,10 @@ jobs:
         container-registry-password: ${{ secrets.acr_sampleregistry77_password }}
         secret-name: myaksclusterdockerauth
         
+    - name: Change the tag in manifest file
+      run: sed -i '-s/latest/${{ github.sha }}/g' ./python-app-k8s.yaml
+        
     - uses: azure/k8s-deploy@v1.2
-      run:
-        sed -i '-s/latest/${{ github.sha }}/g' ./python-app-k8s.yaml
       with:
         namespace: python-app
         manifests: |
