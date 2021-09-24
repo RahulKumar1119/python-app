@@ -46,7 +46,7 @@ jobs:
         secret-name: myaksclusterdockerauth
         
     - name: Change the tag in manifest file
-      run: sed -i '-s/latest/${{ github.sha }}/g' ./python-app-k8s.yaml
+      run: sed -i 's/latest/${{ github.sha }}/g' ./python-app-k8s.yaml
         
     - uses: azure/k8s-deploy@v1.2
       with:
