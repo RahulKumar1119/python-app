@@ -48,7 +48,7 @@ spec:
     spec:
       containers:
       - name: vote-front
-        image: sampleregistry77.azurecr.io/myakscluster:${{ github.sha }}
+        image: sampleregistry77.azurecr.io/myakscluster
         imagePullPolicy: Always
         ports:
         - containerPort: 80
