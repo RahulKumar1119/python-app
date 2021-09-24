@@ -58,6 +58,7 @@ spec:
         env:
         - name: REDIS
           value: "vote-back"
+          
 ---
 apiVersion: v1
 kind: Service
