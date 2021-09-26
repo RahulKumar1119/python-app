@@ -66,7 +66,6 @@ metadata:
   name: vote-front
   namespace: python-app
 spec:
-  type: ClusterIP
   ports:
   - port: 80
   selector:
