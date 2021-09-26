@@ -46,7 +46,9 @@ jobs:
         secret-name: myaksclusterdockerauth
         
     - name: Change the tag in manifest file
-      run: sed -i 's/latest/${{ github.sha }}/g' ./python-app-k8s.yaml
+      run: |
+        sed -i 's/latest/${{ github.sha }}/g' ./python-app-k8s.yaml
+        helm install app-ingress ingress-nginx/ingress-nginx  --namespace ingress --set controller.replicaCount=2 --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
         
     - uses: azure/k8s-deploy@v1.2
       with:
